@@ -16,6 +16,7 @@ public class populate : MonoBehaviour
 	float xcoordMod = 2f;
 	float deliveredx=1.0f;
 	float ycoordMod = 1.5f;
+	Animator X;
 	// Use this for initialization
 	void Start () 
 	{
@@ -34,6 +35,7 @@ public class populate : MonoBehaviour
 				hex_go.GetComponent<Hex> ().y = y;
 				hex_go.transform.SetParent (this.transform);
 				hex_go.isStatic = true;
+				hex_go.transform.GetChild(0).gameObject.GetComponent<Animator> ().enabled = false;
 
 			}
 		}

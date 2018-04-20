@@ -46,8 +46,12 @@ public class MouseManager : MonoBehaviour
 	void FlipTile (GameObject Tile)
 	{
 		MeshRenderer mr= Tile.GetComponentInChildren<MeshRenderer> ();
+
+
+
 		if (Tile.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).IsName ("nothing")) 
 		{
+			Tile.GetComponent<Animator> ().enabled=true;
 			Tile.GetComponent<Animator> ().SetTrigger ("Act");
 			Tile.GetComponent<Animator> ().ResetTrigger ("React");
 			mr.material.color = Color.white;
@@ -55,16 +59,18 @@ public class MouseManager : MonoBehaviour
 		}
 		else if (Tile.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).IsName ("n2")) 
 		{
+			Tile.GetComponent<Animator> ().enabled=true;
 			Tile.GetComponent<Animator> ().SetTrigger ("React");
 			Tile.GetComponent<Animator> ().ResetTrigger ("Act");
 			mr.material.color = def;
 			Debug.Log ("Goes Here");
 		}
+		//Tile.GetComponent<Animator> ().enabled=false;
 
 	}
 	void FlipAdjacent(Hex [] array)
 	{
-		GameObject A,B;
+		GameObject A;
 		for (int i = 0; i < array.Length; i++) 
 		{
 			A=GameObject.Find ("Hex_" + array[i].x + "_" + array[i].y).transform.GetChild(0).gameObject;
