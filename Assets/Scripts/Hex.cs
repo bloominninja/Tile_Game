@@ -63,7 +63,10 @@ public class Hex : MonoBehaviour
 		*/
 		return T2.ToArray();
 	}
+	void Update ()
+	{
 
+	}
 
 
 }
